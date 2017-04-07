@@ -1,0 +1,21 @@
+image: docker:17.03
+
+variables:
+  DOCKER_DRIVER: overlay
+
+services:
+- docker:dind
+
+stages:
+  - deploy
+
+before_script:
+  - apk add --update git make
+
+deploy_dev:
+  stage: deploy
+  script:
+    - make build
+    - make push
+  only:
+    - master

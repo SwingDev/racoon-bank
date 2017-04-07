@@ -1,0 +1,10 @@
+.git
+.pgdata
+
+.dockerignore
+.gitignore
+Dockerfile
+Makefile
+
+coverage
+node_modules

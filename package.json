@@ -1,0 +1,32 @@
+{
+  "name": "racoon-bank",
+  "description": "Racoon Bank",
+  "keywords": [],
+  "version": "0.0.1",
+  "private": true,
+  "author": "Tomek Kopczuk <tomek@swingdev.io>",
+  "license": "Commercial",
+  "engines": {
+    "node": ">=6.x"
+  },
+  "scripts": {
+    "start": "node cluster.js",
+    "debug": "./node_modules/.bin/nodemon --debug cluster.js"
+  },
+  "dependencies": {
+    "bluebird": "https://registry.npmjs.org/bluebird/-/bluebird-3.4.7.tgz",
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.1",
+    "express": "~4.14.0",
+    "locks": "^0.2.2",
+    "recluster": "^0.4.5",
+    "redis": "^2.7.1",
+    "winston": "~2.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-eslint": "^7.2.1",
+    "eslint": "^3.19.0",
+    "nodemon": "1.11.0"
+  }
+}

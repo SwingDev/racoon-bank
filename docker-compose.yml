@@ -1,0 +1,21 @@
+version: '2'
+services:
+  redis:
+    image: redis
+
+  api:
+    build: .
+    command: nodemon -e js,json,yml cluster.js
+    volumes:
+      - "./app:/app/app"
+      - "./config:/app/config"
+      - "./coverage:/app/coverage"
+      - "./test:/app/test"
+      - "./cluster.js:/app/cluster.js"
+      - "./server.js:/app/server.js"
+    ports:
+      - "81:8080"
+    environment:
+      REDIS_PORT: 6379
+      REDIS_HOST: redis
+      REDIS_PASS:
