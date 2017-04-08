@@ -1,7 +1,7 @@
 SERVICENAME = racoon-bank
 BASENAME = swingdevelopment/$(SERVICENAME)
 SHA1 = $(shell git rev-parse HEAD)
-TAG = $(TAG_PREFIX)_$(SHA1)
+TAG = $(TAG_PREFIX)$(SHA1)
 
 .PHONY: build test push auth_gcr tag_gcr push_gcr deploy_gcr deploy_swarm
 

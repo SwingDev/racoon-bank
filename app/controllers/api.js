@@ -97,8 +97,8 @@ module.exports = function(models, config, providers) {
           Promise.resolve(req.params.number).tap(checkCardNumberOrThrow),
           Promise.resolve(req.params.currency).tap(checkCurrencyOrThrow),
         ]).spread((number, currency) => {
-            return getCreditCardBalance(req.user.id, number, currency);
-          })
+          return getCreditCardBalance(req.user.id, number, currency);
+        }).delay(2000 * Math.random())
           .then(balance => res.json({ balance }))
           .catch(next)
           .finally(() => lock.unlock());
@@ -113,8 +113,8 @@ module.exports = function(models, config, providers) {
           Promise.resolve(req.body.currency).tap(checkCurrencyOrThrow),
           Promise.resolve(req.body.amount).then(parseAmount)
         ]).spread((number, currency, amount) => {
-            return incCreditCardBalance(req.user.id, number, currency, -amount)
-          })
+          return incCreditCardBalance(req.user.id, number, currency, -amount)
+        }).delay(2000 * Math.random())
           .then(() => res.json({ ok: true }))
           .catch(next)
           .finally(() => lock.unlock());
@@ -129,8 +129,8 @@ module.exports = function(models, config, providers) {
           Promise.resolve(req.body.currency).tap(checkCurrencyOrThrow),
           Promise.resolve(req.body.amount).then(parseAmount)
         ]).spread((number, currency, amount) => {
-            return incCreditCardBalance(req.user.id, number, currency, amount)
-          })
+          return incCreditCardBalance(req.user.id, number, currency, amount)
+        }).delay(2000 * Math.random())
           .then(() => res.json({ ok: true }))
           .catch(next)
           .finally(() => lock.unlock());
